@@ -11,8 +11,14 @@ export class Tab1Page {
 
   constructor(public PhotoService: PhotoService) {}
 
+  // Charger toutes les photos au demarrage
+  async ngOnInit() {
+    await this.PhotoService.loadSaved();
+  }
+
   addPhotoToGallery(){
     this.PhotoService.addNewToGallery();
   }
 
 }
+
